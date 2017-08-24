@@ -10,15 +10,21 @@ breakedSearchedWord = searchedWord.split("");
 positions = [];
 
 
-for (var i = 0; i < breakedEssay.length; i++) {
-    if (breakedEssay[i] === breakedSearchedWord[0]) {
-       var checkWord =  breakedEssay.slice(i, breakedSearchedWord.length + i).join("");
+
+
+var index = 0
+while (index < breakedEssay.length) {
+    if (breakedEssay[index] === breakedSearchedWord[0]) {
+       var checkWord =  breakedEssay.slice(index, breakedSearchedWord.length + index).join("");
        if(checkWord === searchedWord) {
-           positions.push(i)
+           positions.push(index)
+           index = breakedSearchedWord.length + index - 1
        }
     }
-    
+    index++;
 }
+
+
 
 if (positions.length === 0) {
     console.log("There are no match for the string above in the essay")
